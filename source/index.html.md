@@ -17,7 +17,7 @@ search: true
 
 Welcome to the zeromac API documentation! You can use our API to create, destroy, and view information around your provisioned machines.
 
-Our documentation shows examples on how to use our HTTP API with curl in your shell, but you can use the HTTP libraries available in any programming language to 
+Our documentation shows examples on how to use our HTTP API with curl in your shell, but you can use the HTTP libraries available in any programming language to make the same API calls.
 
 # Authentication
 

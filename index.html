@@ -235,6 +235,9 @@
                   <li>
                     <a href="#delete-a-specific-machine" class="toc-h2 toc-link" data-title="Delete a Specific Machine">Delete a Specific Machine</a>
                   </li>
+                  <li>
+                    <a href="#create-a-machine" class="toc-h2 toc-link" data-title="Create a Machine">Create a Machine</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -270,41 +273,48 @@ curl <span class="s2">"api_endpoint_here"</span>
 <aside class="notice">
 You must replace <code>zzzzzzz</code> with your personal API key.
 </aside>
-<h1 id='machines'>Machines</h1><h2 id='get-all-machines'>Get All Machines</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machines"</span>
-  -H <span class="s2">"Authorization: zzzzzzz"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test worker 1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"public_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.6.7.8"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-29T00:06:50.865Z"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E50DE994-7E47-4C4D-8CB4-29FDF2516999"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test worker 2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"public_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2.3.4"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T00:07:32.228Z"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all machines.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.zeromac.com/v1/machines</code></p>
-<h2 id='get-a-specific-machine'>Get a Specific Machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span>
+<h1 id='machines'>Machines</h1><h2 id='get-all-machines'>Get All Machines</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machines"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: zzzzzzz"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test worker 1"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"public_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.6.7.8"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-29T00:06:50.865Z"</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test worker 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"public_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.6.7.8"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-29T00:06:50.865Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provisioned"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E50DE994-7E47-4C4D-8CB4-29FDF2516999"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test worker 2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"public_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2.3.4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-30T00:07:32.228Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provisioned"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all machines.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.zeromac.com/v1/machines</code></p>
+<h2 id='get-a-specific-machine'>Get a Specific Machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: zzzzzzz"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test worker 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"public_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.6.7.8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-29T00:06:50.865Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provisioned"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific machine.</p>
@@ -322,8 +332,8 @@ You must replace <code>zzzzzzz</code> with your personal API key.
 <td>The ID of the machine to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-machine'>Delete a Specific Machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span>
-  -X DELETE
+<h2 id='delete-a-specific-machine'>Delete a Specific Machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span> <span class="se">\</span>
+  -X DELETE <span class="se">\</span>
   -H <span class="s2">"Authorization: zzzzzzz"</span>
 </code></pre>
 <blockquote>
@@ -331,10 +341,10 @@ You must replace <code>zzzzzzz</code> with your personal API key.
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Machine was successfully deleted."</span><span class="w">
+  </span><span class="s2">"message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Machine was successfully deleted"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
+<p>This endpoint deletes a specific machine.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>DELETE https://api.zeromac.com/v1/machine/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
@@ -346,7 +356,64 @@ You must replace <code>zzzzzzz</code> with your personal API key.
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>The ID of the machine to delete</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-machine'>Create a Machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machines </span><span class="se">\</span><span class="s2">
+  -H "</span>Authorization: zzzzzzz<span class="s2">" </span><span class="se">\</span><span class="s2">
+  -H "</span>Content-type: application/json<span class="s2">" </span><span class="se">\</span><span class="s2">
+  --data '{
+    "</span>name<span class="s2">": "</span>Test Box 1<span class="s2">",
+    "</span><span class="nb">type</span><span class="s2">": "</span>1cpu<span class="s2">",
+    "</span>password<span class="s2">": "</span>hello123<span class="s2">"
+  }'
+
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Machine is provisioning"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint deletes a specific machine.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api.zeromac.com/v1/machines</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>(Required) Name of the machine to create</td>
+</tr>
+<tr>
+<td>type</td>
+<td>(Required) Type of virtual machines to create: <code>1cpu</code>, <code>2cpu</code>, <code>4cpu</code>, or <code>6cpu</code></td>
+</tr>
+<tr>
+<td>password</td>
+<td>(Required) Password to be set for <code>admin</code> user</td>
+</tr>
+<tr>
+<td>vnc</td>
+<td>Enable the Screen Sharing server: <code>true</code> or <code>false</code>. Defaults to <code>true</code></td>
+</tr>
+<tr>
+<td>ssh_github_username</td>
+<td>If specified, enables sshd and authorizes the public keys from the specified GitHub user.</td>
+</tr>
+<tr>
+<td>ssh_pubkey</td>
+<td>If specified, enables sshd and installs the specified public keys. Multiple keys can be specified in the string by newlines.</td>
+</tr>
+<tr>
+<td>disable_sip</td>
+<td><code>true</code> or <code>false</code>. If <code>true</code>, System Integrity Protection is disabled.</td>
 </tr>
 </tbody></table>
 

@@ -46,27 +46,31 @@ You must replace <code>zzzzzzz</code> with your personal API key.
 ## Get All Machines
 
 ```shell
-curl "https://api.zeromac.com/v1/machines"
+curl "https://api.zeromac.com/v1/machines" \
   -H "Authorization: zzzzzzz"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": "85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17",
-    "name": "test worker 1",
-    "public_ip": "5.6.7.8",
-    "created_at": "2019-01-29T00:06:50.865Z"
-  },
-  {
-    "id": "E50DE994-7E47-4C4D-8CB4-29FDF2516999",
-    "name": "test worker 2",
-    "public_ip": "1.2.3.4",
-    "created_at": "2019-01-30T00:07:32.228Z"
-  }
-]
+{
+  "data": [
+    {
+      "id": "85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17",
+      "name": "test worker 1",
+      "public_ip": "5.6.7.8",
+      "created_at": "2019-01-29T00:06:50.865Z",
+      "status": "provisioned"
+    },
+    {
+      "id": "E50DE994-7E47-4C4D-8CB4-29FDF2516999",
+      "name": "test worker 2",
+      "public_ip": "1.2.3.4",
+      "created_at": "2019-01-30T00:07:32.228Z",
+      "status": "provisioned"
+    }
+  ]
+}
 ```
 
 This endpoint retrieves all machines.
@@ -78,7 +82,7 @@ This endpoint retrieves all machines.
 ## Get a Specific Machine
 
 ```shell
-curl "https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"
+curl "https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17" \
   -H "Authorization: zzzzzzz"
 ```
 
@@ -86,10 +90,13 @@ curl "https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"
 
 ```json
 {
-  "id": "85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17",
-  "name": "test worker 1",
-  "public_ip": "5.6.7.8",
-  "created_at": "2019-01-29T00:06:50.865Z"
+  "data": {
+    "id": "85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17",
+    "name": "test worker 1",
+    "public_ip": "5.6.7.8",
+    "created_at": "2019-01-29T00:06:50.865Z",
+    "status": "provisioned"
+  }
 }
 ```
 
@@ -108,8 +115,8 @@ ID | The ID of the machine to retrieve
 ## Delete a Specific Machine
 
 ```shell
-curl "https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"
-  -X DELETE
+curl "https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17" \
+  -X DELETE \
   -H "Authorization: zzzzzzz"
 ```
 
@@ -118,11 +125,11 @@ curl "https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"
 ```json
 {
   "id": "85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17",
-  "message" : "Machine was successfully deleted."
+  "message" : "Machine was successfully deleted"
 }
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint deletes a specific machine.
 
 ### HTTP Request
 
@@ -132,5 +139,46 @@ This endpoint deletes a specific kitten.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+ID | The ID of the machine to delete
 
+
+## Create a Machine
+
+```shell
+curl "https://api.zeromac.com/v1/machines \
+  -H "Authorization: zzzzzzz" \
+  -H "Content-type: application/json" \
+  --data '{
+    "name": "Test Box 1",
+    "type": "1cpu",
+    "password": "hello123"
+  }'
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": "85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17",
+  "message" : "Machine is provisioning"
+}
+```
+
+This endpoint deletes a specific machine.
+
+### HTTP Request
+
+`POST https://api.zeromac.com/v1/machines`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+name | (Required) Name of the machine to create
+type | (Required) Type of virtual machines to create: `1cpu`, `2cpu`, `4cpu`, or `6cpu`
+password | (Required) Password to be set for `admin` user
+vnc | Enable the Screen Sharing server: `true` or `false`. Defaults to `true`
+ssh_github_username | If specified, enables sshd and authorizes the public keys from the specified GitHub user.
+ssh_pubkey | If specified, enables sshd and installs the specified public keys. Multiple keys can be specified in the string by newlines.
+disable_sip | `true` or `false`. If `true`, System Integrity Protection is disabled.

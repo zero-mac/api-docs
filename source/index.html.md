@@ -165,7 +165,7 @@ curl "https://api.zeromac.com/v1/machines \
 }
 ```
 
-This endpoint deletes a specific machine.
+This endpoint creates a machine.
 
 ### HTTP Request
 

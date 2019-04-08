@@ -21,7 +21,8 @@ Options:
 
 
 run_build() {
-  bundle exec middleman build
+  bundle exec middleman build --clean
+  echo "developer.zeromac.com" >build/CNAME
 }
 
 parse_args() {

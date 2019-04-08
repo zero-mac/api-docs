@@ -180,5 +180,6 @@ type | (Required) Type of virtual machines to create: `1cpu`, `2cpu`, `4cpu`, or
 password | (Required) Password to be set for `admin` user
 vnc | Enable the Screen Sharing server: `true` or `false`. Defaults to `true`
 ssh_github_username | If specified, enables sshd and authorizes the public keys from the specified GitHub user.
-ssh_pubkey | If specified, enables sshd and installs the specified public keys. Multiple keys can be specified in the string by newlines.
+ssh_pubkey | If specified, enables sshd and installs the specified public keys. Multiple keys can be specified in the string, separated by newlines.
 disable_sip | `true` or `false`. If `true`, System Integrity Protection is disabled.
+image |  `10.14`, `10.13`, `10.12`, `10.11`, `10.10`, or `latest`. If not specified, defaults to `latest`, which is currently `10.14`

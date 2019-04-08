@@ -47,7 +47,7 @@ You must replace <code>zzzzzzz</code> with your personal API key.
 
 ```shell
 curl "https://api.zeromac.com/v1/machines" \
-  -H "Authorization: zzzzzzz"
+  -H "Authorization: Token zzzzzzz"
 ```
 
 > The above command returns JSON structured like this:
@@ -83,7 +83,7 @@ This endpoint retrieves all machines.
 
 ```shell
 curl "https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17" \
-  -H "Authorization: zzzzzzz"
+  -H "Authorization: Token zzzzzzz"
 ```
 
 > The above command returns JSON structured like this:
@@ -117,7 +117,7 @@ ID | The ID of the machine to retrieve
 ```shell
 curl "https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17" \
   -X DELETE \
-  -H "Authorization: zzzzzzz"
+  -H "Authorization: Token zzzzzzz"
 ```
 
 > The above command returns JSON structured like this:
@@ -146,7 +146,7 @@ ID | The ID of the machine to delete
 
 ```shell
 curl "https://api.zeromac.com/v1/machines \
-  -H "Authorization: zzzzzzz" \
+  -H "Authorization: Token zzzzzzz" \
   -H "Content-type: application/json" \
   --data '{
     "name": "Test Box 1",
@@ -181,5 +181,5 @@ password | (Required) Password to be set for `admin` user
 vnc | Enable the Screen Sharing server: `true` or `false`. Defaults to `true`
 ssh_github_username | If specified, enables sshd and authorizes the public keys from the specified GitHub user.
 ssh_pubkey | If specified, enables sshd and installs the specified public keys. Multiple keys can be specified in the string, separated by newlines.
-disable_sip | `true` or `false`. If `true`, System Integrity Protection is disabled.
+disable_sip | `true` or `false`. If `true`, System Integrity Protection is disabled. Defaults to `false`
 image |  `10.14`, `10.13`, `10.12`, `10.11`, `10.10`, or `latest`. If not specified, defaults to `latest`, which is currently `10.14`

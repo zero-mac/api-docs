@@ -274,7 +274,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 You must replace <code>zzzzzzz</code> with your personal API key.
 </aside>
 <h1 id='machines'>Machines</h1><h2 id='get-all-machines'>Get All Machines</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machines"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: zzzzzzz"</span>
+  -H <span class="s2">"Authorization: Token zzzzzzz"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -302,7 +302,7 @@ You must replace <code>zzzzzzz</code> with your personal API key.
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.zeromac.com/v1/machines</code></p>
 <h2 id='get-a-specific-machine'>Get a Specific Machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: zzzzzzz"</span>
+  -H <span class="s2">"Authorization: Token zzzzzzz"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -334,7 +334,7 @@ You must replace <code>zzzzzzz</code> with your personal API key.
 </tbody></table>
 <h2 id='delete-a-specific-machine'>Delete a Specific Machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span> <span class="se">\</span>
   -X DELETE <span class="se">\</span>
-  -H <span class="s2">"Authorization: zzzzzzz"</span>
+  -H <span class="s2">"Authorization: Token zzzzzzz"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -360,7 +360,7 @@ You must replace <code>zzzzzzz</code> with your personal API key.
 </tr>
 </tbody></table>
 <h2 id='create-a-machine'>Create a Machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machines </span><span class="se">\</span><span class="s2">
-  -H "</span>Authorization: zzzzzzz<span class="s2">" </span><span class="se">\</span><span class="s2">
+  -H "</span>Authorization: Token zzzzzzz<span class="s2">" </span><span class="se">\</span><span class="s2">
   -H "</span>Content-type: application/json<span class="s2">" </span><span class="se">\</span><span class="s2">
   --data '{
     "</span>name<span class="s2">": "</span>Test Box 1<span class="s2">",
@@ -413,7 +413,7 @@ You must replace <code>zzzzzzz</code> with your personal API key.
 </tr>
 <tr>
 <td>disable_sip</td>
-<td><code>true</code> or <code>false</code>. If <code>true</code>, System Integrity Protection is disabled.</td>
+<td><code>true</code> or <code>false</code>. If <code>true</code>, System Integrity Protection is disabled. Defaults to <code>false</code></td>
 </tr>
 <tr>
 <td>image</td>

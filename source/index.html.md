@@ -104,7 +104,7 @@ This endpoint retrieves a specific machine.
 
 ### HTTP Request
 
-`GET https://api.zeromac.com/v1/machines/<ID>`
+`GET https://api.zeromac.com/v1/machine/<ID>`
 
 ### URL Parameters
 

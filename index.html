@@ -359,16 +359,16 @@ You must replace <code>zzzzzzz</code> with your personal API key.
 <td>The ID of the machine to delete</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-machine'>Create a Machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machines </span><span class="se">\</span><span class="s2">
-  -H "</span>Authorization: Token zzzzzzz<span class="s2">" </span><span class="se">\</span><span class="s2">
-  -H "</span>Content-type: application/json<span class="s2">" </span><span class="se">\</span><span class="s2">
-  --data '{
-    "</span>name<span class="s2">": "</span>Test Box 1<span class="s2">",
-    "</span><span class="nb">type</span><span class="s2">": "</span>1cpu<span class="s2">",
-    "</span>password<span class="s2">": "</span>hello123<span class="s2">"
-  }'
+<h2 id='create-a-machine'>Create a Machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machines"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Token zzzzzzz"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-type: application/json"</span> <span class="se">\</span>
+  --data <span class="s1">'{
+    "name": "Test Box 1",
+    "type": "1cpu",
+    "password": "hello123"
+  }'</span>
 
-</span></code></pre>
+</code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>

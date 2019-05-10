@@ -145,7 +145,7 @@ ID | The ID of the machine to delete
 ## Create a Machine
 
 ```shell
-curl "https://api.zeromac.com/v1/machines \
+curl "https://api.zeromac.com/v1/machines" \
   -H "Authorization: Token zzzzzzz" \
   -H "Content-type: application/json" \
   --data '{

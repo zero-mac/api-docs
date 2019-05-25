@@ -95,7 +95,8 @@ curl "https://api.zeromac.com/v1/machine/85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17" \
     "name": "test worker 1",
     "public_ip": "5.6.7.8",
     "created_at": "2019-01-29T00:06:50.865Z",
-    "status": "provisioned"
+    "status": "provisioned",
+    "share_link": null
   }
 }
 ```
@@ -183,3 +184,81 @@ ssh_github_username | If specified, enables sshd and authorizes the public keys 
 ssh_pubkey | If specified, enables sshd and installs the specified public keys. Multiple keys can be specified in the string, separated by newlines.
 disable_sip | `true` or `false`. If `true`, System Integrity Protection is disabled. Defaults to `false`
 image |  `10.14`, `10.13`, `10.12`, `10.11`, `10.10`, or `latest`. If not specified, defaults to `latest`, which is currently `10.14`
+
+## Disable share link for a machine
+
+```shell
+curl "https://api.zeromac.com/v1/machines/<id>/share_link" \
+  -H "Authorization: Token zzzzzzz" \
+  -XDELETE
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": "85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17",
+    "name": "test worker 1",
+    "public_ip": "5.6.7.8",
+    "created_at": "2019-01-29T00:06:50.865Z",
+    "status": "provisioned",
+    "share_link": null
+  }
+}
+```
+
+This endpoint enables the share link on a machine. The share link provides
+unauthenticated access to a web VNC console for the machine. You can use
+share links to provide access to the machine to members outside your
+organization.
+
+### HTTP Request
+
+`DELETE https://api.zeromac.com/v1/machine/<id>/share_link`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the machine to retrieve
+
+## Enable share link for a machine
+
+```shell
+curl "https://api.zeromac.com/v1/machines/<id>/share_link" \
+  -H "Authorization: Token zzzzzzz" \
+  -XPUT
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "id": "85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17",
+    "name": "test worker 1",
+    "public_ip": "5.6.7.8",
+    "created_at": "2019-01-29T00:06:50.865Z",
+    "status": "provisioned",
+    "share_link": "https://zeromac.com/machines/share/05Ea9O9RuQpSdFJ5XQGEJYw4N8j7dxe3GmxFNg6zu7dQvupy12fSiLRpdzr9feWouvIM0Vs57V2JwBdO9ajjHruMW6lTTdTmcoJvh7ij35cYh9ggnyqK7YTCrH63S7xx"
+  }
+}
+```
+
+This endpoint enables the share link on a machine. The share link provides
+unauthenticated access to a web VNC console for the machine. You can use
+share links to provide access to the machine to members outside your
+organization.
+
+### HTTP Request
+
+`PUT https://api.zeromac.com/v1/machine/<id>/share_link`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the machine to retrieve

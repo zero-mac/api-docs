@@ -238,6 +238,12 @@
                   <li>
                     <a href="#create-a-machine" class="toc-h2 toc-link" data-title="Create a Machine">Create a Machine</a>
                   </li>
+                  <li>
+                    <a href="#disable-share-link-for-a-machine" class="toc-h2 toc-link" data-title="Disable share link for a machine">Disable share link for a machine</a>
+                  </li>
+                  <li>
+                    <a href="#enable-share-link-for-a-machine" class="toc-h2 toc-link" data-title="Enable share link for a machine">Enable share link for a machine</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -313,7 +319,8 @@ You must replace <code>zzzzzzz</code> with your personal API key.
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test worker 1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"public_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.6.7.8"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-29T00:06:50.865Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provisioned"</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provisioned"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"share_link"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -418,6 +425,80 @@ You must replace <code>zzzzzzz</code> with your personal API key.
 <tr>
 <td>image</td>
 <td><code>10.14</code>, <code>10.13</code>, <code>10.12</code>, <code>10.11</code>, <code>10.10</code>, or <code>latest</code>. If not specified, defaults to <code>latest</code>, which is currently <code>10.14</code></td>
+</tr>
+</tbody></table>
+<h2 id='disable-share-link-for-a-machine'>Disable share link for a machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machines/&lt;id&gt;/share_link"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Token zzzzzzz"</span> <span class="se">\</span>
+  -XDELETE
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test worker 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"public_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.6.7.8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-29T00:06:50.865Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provisioned"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"share_link"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint enables the share link on a machine. The share link provides
+unauthenticated access to a web VNC console for the machine. You can use
+share links to provide access to the machine to members outside your
+organization.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE https://api.zeromac.com/v1/machine/&lt;id&gt;/share_link</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the machine to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='enable-share-link-for-a-machine'>Enable share link for a machine</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.zeromac.com/v1/machines/&lt;id&gt;/share_link"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Token zzzzzzz"</span> <span class="se">\</span>
+  -XPUT
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85B03DB2-C3DA-4AF2-A89B-B63E8FBCED17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test worker 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"public_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.6.7.8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-29T00:06:50.865Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"provisioned"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"share_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zeromac.com/machines/share/05Ea9O9RuQpSdFJ5XQGEJYw4N8j7dxe3GmxFNg6zu7dQvupy12fSiLRpdzr9feWouvIM0Vs57V2JwBdO9ajjHruMW6lTTdTmcoJvh7ij35cYh9ggnyqK7YTCrH63S7xx"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint enables the share link on a machine. The share link provides
+unauthenticated access to a web VNC console for the machine. You can use
+share links to provide access to the machine to members outside your
+organization.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>PUT https://api.zeromac.com/v1/machine/&lt;id&gt;/share_link</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the machine to retrieve</td>
 </tr>
 </tbody></table>
 

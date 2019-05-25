@@ -209,7 +209,7 @@ curl "https://api.zeromac.com/v1/machines/<id>/share_link" \
 }
 ```
 
-This endpoint enables the share link on a machine. The share link provides
+This endpoint diisables the share link on a machine. The share link provides
 unauthenticated access to a web VNC console for the machine. You can use
 share links to provide access to the machine to members outside your
 organization.
